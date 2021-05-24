@@ -1,0 +1,13 @@
+{
+    "dependencies": {
+        "capsules": [
+            {
+                "capsule": "Base"
+            },
+            {
+                "capsule": "Countries",
+                "branch": "stable"
+            }
+        ]
+    }
+}
