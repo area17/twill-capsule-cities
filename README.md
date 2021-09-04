@@ -22,7 +22,7 @@ php artisan twill:capsule:install cities
 
 Enable the Capsule adding it to `config/twill.php`
 
-``` php
+```php
 return [
     'capsules' => [
         'list' => [
@@ -31,7 +31,7 @@ return [
                 'enabled' => true,
             ],
             ...
-        ],            
+        ],
     ],
 ```
 
@@ -39,7 +39,7 @@ return [
 
 Add this to `twill-navigation.php` to make your homepage link go directly to the edit page:
 
-``` php
+```php
 return [
     'destinations' => [
         'title' => 'Destinations',
@@ -65,7 +65,7 @@ return [
 
 This Capsule contains a seeder to seed cities and countries, to use use it, you just need to call on your `databaase/seeders/DatabaseSeeder.php`:
 
-``` php
+```php
 <?php
 
 namespace Database\Seeders;
@@ -89,12 +89,12 @@ class DatabaseSeeder extends Seeder
 
 It depends on [Countries](https://packagist.org/packages/pragmarx/countries) and [ForceUTF8](https://github.com/neitanod/forceutf8) packages that can be installed using:
 
-``` bash
+```bash
 composer require pragmarx/countries
 composer require neitanod/forceutf8
 ```
 
 ## Dependencies
 
-- Depends on the [Twill Capsules Base](https://github.com/area17/twill-capsule-base) repository.
-- Depends on the [Twill Capsules Countries](https://github.com/area17/twill-capsule-countries) repository.
+-   Depends on the [Twill Capsules Base](https://github.com/area17/twill-capsule-base) repository.
+-   Depends on the [Twill Capsules Countries](https://github.com/area17/twill-capsule-countries) repository.

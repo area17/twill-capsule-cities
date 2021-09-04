@@ -1,6 +1,12 @@
 @extends('twill::layouts.form')
 
 @section('contentFields')
+    @formField('medias', [
+        'name' => 'role-city-cover',
+        'label' => 'Cover image',
+        'max' => 1,
+    ])
+
     @formField('browser', [
         'routePrefix' => 'destinations',
         'moduleName' => 'countries',

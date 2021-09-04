@@ -3,7 +3,9 @@
 namespace App\Twill\Capsules\Cities\Models;
 
 use App\Twill\Capsules\Base\Model;
+use App\Twill\Capsules\Base\Crops;
 use A17\Twill\Models\Behaviors\HasSlug;
+use A17\Twill\Models\Behaviors\HasMedias;
 use App\Twill\Capsules\Base\Scopes\OrderByPosition;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\HasRevisions;
@@ -13,15 +15,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class City extends Model
 {
-    use HasTranslation, HasSlug, HasRevisions, HasPosition;
+    use HasTranslation, HasSlug, HasRevisions, HasPosition, HasMedias;
 
-    protected $fillable = ['published', 'country_id'];
+    protected $fillable = ['published', 'country_id', 'latitude', 'longitude'];
 
-    public $translatedAttributes = ['name', 'active'];
+    public $translatedAttributes = ['name', 'active', 'seo_title', 'seo_description'];
 
     public $slugAttributes = ['name'];
 
-    public string $titleColumnKey = 'name';
+    public $titleColumnKey = 'name';
+
+    public $filterableColumns = ['city_translations.name'];
+
+    public $mediasParams = Crops::CITY;
 
     public function country(): BelongsTo
     {

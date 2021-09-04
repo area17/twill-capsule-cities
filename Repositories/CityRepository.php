@@ -5,12 +5,13 @@ namespace App\Twill\Capsules\Cities\Repositories;
 use App\Twill\Capsules\Cities\Models\City;
 use App\Twill\Capsules\Base\ModuleRepository;
 use A17\Twill\Repositories\Behaviors\HandleSlugs;
+use A17\Twill\Repositories\Behaviors\HandleMedias;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
 use A17\Twill\Repositories\Behaviors\HandleTranslations;
 
 class CityRepository extends ModuleRepository
 {
-    use HandleTranslations, HandleSlugs, HandleRevisions;
+    use HandleMedias, HandleTranslations, HandleSlugs, HandleRevisions;
 
     public function __construct(City $model)
     {
@@ -30,12 +31,7 @@ class CityRepository extends ModuleRepository
             'destinations',
         );
 
-        return $this->getManyToManyBrowserField(
-            $object,
-            $fields,
-            'restaurants',
-            'destinations',
-        );
+        return $this->getManyToManyBrowserField($object, $fields, 'restaurants', 'destinations');
     }
 
     public function afterSave($object, $fields)
